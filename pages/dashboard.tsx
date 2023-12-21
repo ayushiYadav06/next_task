@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Dashboard = () => {
+
   const [query, setQuery] = useState('');
 
   const [gifs, setGifs] = useState([]);
@@ -155,9 +156,10 @@ const Dashboard = () => {
 <div className="card">
      
       {gifs.map((gif) =>{
+        console.log(gif.embed_url)
         return( 
           <>
-          <img src=`{gif.embed_url }` alt="Avatar" style={{width:"100%" }} />
+          <img src= {gif.embed_url} alt="Avatar" style={{width:"100%" }} />
           <div className="container">
             <h4><b>{gif.username}</b></h4> 
             <p>{gif.title}</p> 
