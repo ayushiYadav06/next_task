@@ -14,6 +14,7 @@ const Dashboard = () => {
       if (response.ok) {
         const data = await response.json();
         setGifs(data.data); // Assuming data.data contains the array of GIFs
+
       } else {
         throw new Error('Failed to fetch GIFs');
       }
@@ -51,6 +52,48 @@ const Dashboard = () => {
           padding: 8px;
           border-radius: 4px;
         }
+
+        .body{
+          margin: 0px;
+          padding: 0px;
+         
+      }
+      .box{
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+      
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+        transition: 0.3s;
+        width: 25%;
+      }
+      
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+      }
+      
+      .container {
+        padding: 3px 20px;
+      }
+      .button{
+          display: flex;
+         justify-content: center;
+          list-style-type: none;
+      
+      } 
+      
+      a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+      }
+      
+      a:hover {
+        background-color: #ddd;
+        color: black;
+      }
          
       `}</style>
 
@@ -107,11 +150,34 @@ const Dashboard = () => {
           </div>
         </nav>
         <div>
-        {gifs.map((gif) => (
-          // <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title} />
-          <h1 key={gif}>hello</h1>
-        ))}
+
+<div className ="box">
+<div className="card">
+     
+      {gifs.map((gif) =>{
+        return( 
+          <>
+          <img src=`{gif.embed_url }` alt="Avatar" style={{width:"100%" }} />
+          <div className="container">
+            <h4><b>{gif.username}</b></h4> 
+            <p>{gif.title}</p> 
+          </div>
+          </>
+      
+        )
+      })
+
+      }
+  <img src="cardimage1.jpg" alt="Avatar" style={{width:"100%" }} />
+  <div className="container">
+    <h4><b>John Doe</b></h4> 
+    <p>Architect & Engineer</p> 
+  </div>
+</div>
+
+</div>
       </div>
+
       </div>
       
     </div>
